@@ -1,20 +1,6 @@
-# Frontier Semantic Policy for Visual Target Navigation
+# RLLMNav: Seamless Integration of Reinforcement Learning and Large Language Models for Object Goal Navigation
 
-This work is based on our paper. We proposed a new framework to explore and search for the target in unknown environment. Our work is based on [RedNet](https://github.com/JindongJiang/RedNet),   [SemExp](https://github.com/devendrachaplot/Object-Goal-Navigation) and [Invalid Action Masking](https://github.com/neurips2020submission/invalid-action-masking), implemented in PyTorch.
-
-**Author:** Bangguo Yu, Hamidreza Kasaei and Ming Cao
-
-**Affiliation:** University of Groningen
-
-## Frontier Semantic Exploration Framework
-
-This work focuses on the problem of visual target navigation, which is very important for autonomous robots
-as it is closely related to high-level tasks. To find a special object in unknown environments, classical and learning-based approaches are fundamental components of navigation that have been investigated thoroughly in the past. However, due to the difficulty in the representation of complicated scenes
-and the learning of the navigation policy, previous methods are still not adequate, especially for large unknown scenes. Hence, we propose a novel framework for visual target navigation using the frontier semantic policy. In this proposed framework, the semantic map and the frontier map are built from the
-current observation of the environment. Using the features of the maps and object category, deep reinforcement learning enables to learn a frontier semantic policy which can be used to select a frontier cell as a long-term goal to explore the environment efficiently. Experiments on Gibson and Habitat-
-Matterport 3D (HM3D) demonstrate that the proposed framework significantly outperforms existing map-based methods in terms of success rate and efficiency. Ablation analysis also indicates that the proposed approach learns a more efficient exploration policy based on the frontiers. A demonstration is provided to verify the applicability of applying our model to real-world transfer. The supplementary video and code can be accessed via the following link: https://yubangguo.com/project/frontier-semantic-exploration.
-
-![image-20200706200822807](img/system.jpg)
+This work is based on our paper. We proposed a new framework to explore and search for the target in unknown environment. 
 
 <!-- ## Requirements
 
@@ -70,14 +56,6 @@ python -m habitat_sim.utils.datasets_download --username <api-token-id> --passwo
 Download the [segmentation model](https://drive.google.com/file/d/1U0dS44DIPZ22nTjw0RfO431zV-lMPcvv/view?usp=share_link) in RedNet/model path.
 
 
-## Setup
-Clone the repository and install other requirements:
-```
-git clone https://github.com/ybgdgh/Frontier-Semantic-Exploration/
-cd Frontier-Semantic-Exploration/
-pip install -r requirements.txt
-```
-
 ### Setting up datasets
 The code requires the datasets in a `data` folder in the following format (same as habitat-lab):
 ```
@@ -93,12 +71,6 @@ Object-Goal-Navigation/
 
 
 ### For evaluation: 
-For evaluating the pre-trained model:
 ```
-python main_f_policy_gl_iam.py --split val --eval 1 --auto_gpu_config 0 -n 1  --load pretrained_models/model_f_p_iam_new.pth --use_gtsem 0 -v 1
+python main_f_policy_gl_iam.py --split val --greedy 5 --eval 1 --auto_gpu_config 0 -n 1 --use_gtsem 0
 ```
-
-
-## Demo Video
-
-[video](https://yubangguo.com/project/frontier-semantic-exploration)
